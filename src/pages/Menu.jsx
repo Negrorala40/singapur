@@ -74,8 +74,8 @@ const Menu = () => {
     const [selectedCategory, setSelectedCategory] = useState('Todos');
     const [filteredProducts, setFilteredProducts] = useState(products);
 
-    // Determinar si estamos en la ruta "/Menu"
-    const isMenuPage = location.pathname === '/Menu';
+    // Verificar si estamos en /Menu o si la ruta incluye parámetros de búsqueda para Menu
+    const isMenuPage = location.pathname === '/Menu' || location.pathname.includes('/Menu');
 
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search);
@@ -111,7 +111,12 @@ const Menu = () => {
     };
 
     return (
-        <div className={`menu-container ${isMenuPage ? 'menu-page' : ''}`}>
+        <div
+            className={`menu-container ${isMenuPage ? 'menu-page' : ''}`}
+            style={{
+                marginTop: isMenuPage ? '4rem' : '0', // Aplica margen superior solo en /Menu o búsquedas relacionadas
+            }}
+        >
             {/* Filtro y botón "Ver todo" */}
             <div className="filter-and-button-container">
                 <div className="filter-container">
@@ -149,7 +154,7 @@ const Menu = () => {
                                         </span>
                                         <span className="discounted-price">
                                             ${(
-                                                product.price - 
+                                                product.price -
                                                 (product.price * product.discount) / 100
                                             ).toLocaleString('es-CO')}
                                         </span>

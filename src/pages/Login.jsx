@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
-
+    
 const Login = () => {
     const [isRegistering, setIsRegistering] = useState(false);
 

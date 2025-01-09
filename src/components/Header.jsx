@@ -47,12 +47,12 @@ const Header = () => {
     const handleSearchSubmit = (event) => {
         event.preventDefault();
         if (searchQuery.trim()) {
-            // Navega a la página de menú con el parámetro de búsqueda
-            navigate(`/menu?search=${encodeURIComponent(searchQuery)}`);
+            // Redirige a la página de menú con el parámetro de búsqueda
+            navigate(`/Menu?search=${encodeURIComponent(searchQuery)}`); // Asegúrate de que la ruta sea `/Menu` (respetando mayúsculas y minúsculas)
             setSearchQuery(''); // Limpia el campo de búsqueda
             setSearchOpen(false); // Cierra el cuadro de búsqueda
         }
-    };
+    };    
 
     return (
         <header className="header">

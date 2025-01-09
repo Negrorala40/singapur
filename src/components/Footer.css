@@ -1,14 +1,31 @@
+/* Asegura que el body ocupe toda la altura de la pantalla */
+html, body {
+    height: 100%; /* Hace que el body ocupe toda la altura del viewport */
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en una columna */
+}
+
+/* Contenedor principal que ocupa el espacio restante */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Permite que el contenido principal ocupe el espacio disponible */
+    min-height: 100%; /* Asegura que el contenedor principal ocupe toda la altura */
+}
+
+/* Estilos para el footer */
 .footer {
     background: #1a1a1a;
     color: #fff;
     text-align: center;
     padding: 1rem 0;
-    position: relative;
-    bottom: 0; /* Lo posiciona en la parte inferior */
     width: 100%; /* Asegura que ocupe todo el ancho */
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    position: absolute; /* Asegura que el footer no se mueva */
+    margin-top: auto; /* Empuja el footer hacia el fondo */
 }
 
+/* Estilo para el contenedor dentro del footer */
 .container {
     max-width: 1200px;
     margin: 0 auto;
