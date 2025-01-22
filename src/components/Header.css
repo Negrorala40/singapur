@@ -64,8 +64,8 @@ header, .header {
 
 .header-left .btn:hover,
 .header-right .btn:hover {
-    background: #f4d03f;
-    color: #1a1a1a;
+    background: #178582;
+    color: #0a1828;
 }
 
 /* Menu Styles */
@@ -106,7 +106,7 @@ header, .header {
 }
 
 .menu ul li a:hover {
-    color: #f4d03f;
+    color: #178582;
 }
 
 /* Submenu Styles */
@@ -114,7 +114,7 @@ header, .header {
     display: none;
     margin-top: 0.5rem;
     padding-left: 1rem;
-    border-left: 2px solid #f4d03f;
+    border-left: 2px solid #178582;
     opacity: 0;
     max-height: 0;
     overflow: hidden;
@@ -148,7 +148,7 @@ header, .header {
 }
 
 .submenu-toggle:hover {
-    color: #f4d03f;
+    color: #178582;
 }
 
 /* Styles for btn-cart and cart-overlay */
@@ -162,16 +162,16 @@ header, .header {
     width: 2rem;
     height: 2rem;
     padding: 0.3rem;
-    border: 1px solid #f4d03f;
+    border: 1px solid #178582;
     background: transparent;
-    color: #f4d03f;
+    color: #178582;
     border-radius: 50%;
     transition: background 0.3s, color 0.3s;
     cursor: pointer;
 }
 
 .btn-cart:hover {
-    background: #f4d03f;
+    background: #178582;
     color: #1a1a1a;
 }
 
@@ -219,7 +219,7 @@ header, .header {
 }
 
 .close-btn:hover {
-    color: #f4d03f;
+    color: #178582;
 }
 
 /* Título del carrito */
@@ -296,7 +296,7 @@ header, .header {
     display: block;
     width: 100%;
     padding: 0.8rem;
-    background: #f4d03f;
+    background: #178582;
     border: none;
     color: #1a1a1a;
     font-weight: bold;
@@ -306,5 +306,5 @@ header, .header {
 }
 
 .btn-checkout:hover {
-    background: #d4b03f;
+    background: #178582;
 }

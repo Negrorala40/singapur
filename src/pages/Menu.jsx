@@ -24,7 +24,7 @@ const products = [
       category: "Deportivo",
       subcategory: "calzado",
       gender: "mujer",
-      image: "https://via.placeholder.com/150",
+      image: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/d3123e79-53e5-4a03-aa5b-fbc5c18b9bfd/WMNS+AIR+JORDAN+1+LOW.png",
     },
     {
       id: 2,
@@ -193,7 +193,7 @@ const products = [
       discount: 8,
       category: "Pantuflas",
       subcategory: "calzado",
-      gender: "mujer",
+      gender: "hombre",
       image: "https://via.placeholder.com/150",
     },
   ];
