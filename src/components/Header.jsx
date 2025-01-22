@@ -12,7 +12,7 @@ const Header = ({ cartItems, setCartItems }) => {
   const menuRef = useRef(null);
   const searchRef = useRef(null);
   const cartRef = useRef(null);
-  const navigate = useNavigate();
+  const navigate = useNavigate();  // Inicializa useNavigate
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const toggleSubmenu = (menu) => setSubmenuOpen(submenuOpen === menu ? null : menu);
@@ -51,6 +51,12 @@ const Header = ({ cartItems, setCartItems }) => {
   };
 
   const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+
+  // Función para redirigir al checkout con los datos del carrito
+  const goToCheckout = () => {
+    setCartOpen(false);
+    navigate('/checkout', { state: { cartItems, totalPrice } }); // Pasa los datos del carrito como estado
+  };
 
   return (
     <header className="header">
@@ -106,7 +112,7 @@ const Header = ({ cartItems, setCartItems }) => {
             </ul>
             <div className="cart-summary">
               <p>Total: ${totalPrice.toFixed(2)}</p>
-              <button className="btn btn-checkout">Ir a Pagar</button>
+              <button className="btn btn-checkout" onClick={goToCheckout}>Ir a Pagar</button> {/* Botón para redirigir */}
             </div>
           </div>
         </div>
