@@ -16,7 +16,7 @@ a {
 
 /* Header Styles */
 header, .header {
-    background-color: #1a1a1a;
+    background-color: #0a1828;
     color: #fff;
     padding: 0.5rem 0;
     position: fixed;
@@ -34,7 +34,7 @@ header, .header {
 .header .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #f4d03f;
+    color: #178582;
     text-align: center;
     flex: 1;
 }
@@ -55,9 +55,9 @@ header, .header {
     width: 1.8rem;
     height: 1.8rem;
     padding: 0.3rem;
-    border: 1px solid #f4d03f;
+    border: 1px solid #178582;
     background: transparent;
-    color: #f4d03f;
+    color: #178582;
     border-radius: 50%;
     transition: background 0.3s, color 0.3s;
 }

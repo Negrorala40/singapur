@@ -4,7 +4,6 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    background-color: #f4f4f4;
     padding-top: calc(3rem + 1px); /* Asegura espacio suficiente para el header */
 }
 
@@ -73,6 +72,7 @@ a {
     background-position: center;
     height: 35vh;
     color: white;
+    border: 0.5px solid #bfa181;
 }
 
 .destacados {

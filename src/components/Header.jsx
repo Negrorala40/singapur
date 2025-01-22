@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Header = ({ cartItems, setCartItems }) => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [submenuOpen, setSubmenuOpen] = useState(false);
+    const [submenuOpen, setSubmenuOpen] = useState(null); // Estado para submenús específicos
     const [searchOpen, setSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [cartOpen, setCartOpen] = useState(false); // Estado para el visor del carrito
@@ -14,14 +14,12 @@ const Header = ({ cartItems, setCartItems }) => {
     const cartRef = useRef(null);
     const navigate = useNavigate();
 
-    // Alternar visibilidad del menú
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
 
-    // Alternar visibilidad del submenú
-    const toggleSubmenu = () => {
-        setSubmenuOpen(!submenuOpen);
+    const toggleSubmenu = (menu) => {
+        setSubmenuOpen(submenuOpen === menu ? null : menu);
     };
 
     const toggleSearch = () => {
@@ -32,12 +30,11 @@ const Header = ({ cartItems, setCartItems }) => {
         setCartOpen(!cartOpen);
     };
 
-    // Cerrar menú, barra de búsqueda o carrito al hacer clic fuera
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (menuRef.current && !menuRef.current.contains(event.target)) {
                 setMenuOpen(false);
-                setSubmenuOpen(false);
+                setSubmenuOpen(null);
             }
             if (searchRef.current && !searchRef.current.contains(event.target)) {
                 setSearchOpen(false);
@@ -106,7 +103,6 @@ const Header = ({ cartItems, setCartItems }) => {
                     <FaShoppingCart size={15} />
                 </button>
             </div>
-            {/* Visor del carrito */}
             {cartOpen && (
                 <div ref={cartRef} className="cart-overlay">
                     <div className="cart-container">
@@ -138,17 +134,32 @@ const Header = ({ cartItems, setCartItems }) => {
                     </div>
                 </div>
             )}
-            {/* Menú desplegable */}
             <div ref={menuRef} className={`menu ${menuOpen ? 'open' : ''}`}>
                 <ul>
                     <li>
-                        <button className="submenu-toggle" onClick={toggleSubmenu}>
-                            Calzado
+                        <button
+                            className="submenu-toggle"
+                            onClick={() => toggleSubmenu('hombre')}
+                        >
+                            Hombre
                         </button>
-                        {/* Submenú */}
-                        <ul className={`submenu ${submenuOpen ? 'open' : ''}`}>
-                            <li><a href="#calzado-hombre">Hombre</a></li>
-                            <li><a href="#calzado-mujer">Mujer</a></li>
+                        <ul className={`submenu ${submenuOpen === 'hombre' ? 'open' : ''}`}>
+                            <li><Link to="/Menu?gender=male&subcategory=superior">Superior</Link></li>
+                            <li><Link to="/Menu?gender=male&subcategory=inferior">Inferior</Link></li>
+                            <li><Link to="/Menu?gender=male&subcategory=calzado">Calzado</Link></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button
+                            className="submenu-toggle"
+                            onClick={() => toggleSubmenu('mujer')}
+                        >
+                            Mujer
+                        </button>
+                        <ul className={`submenu ${submenuOpen === 'mujer' ? 'open' : ''}`}>
+                            <li><Link to="/Menu?gender=female&subcategory=superior">Superior</Link></li>
+                            <li><Link to="/Menu?gender=female&subcategory=inferior">Inferior</Link></li>
+                            <li><Link to="/Menu?gender=female&subcategory=calzado">Calzado</Link></li>
                         </ul>
                     </li>
                 </ul>

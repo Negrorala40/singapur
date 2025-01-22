@@ -1,3 +1,7 @@
+.body {
+    background-color: #0a1828;
+}
+
 .menu-container {
     padding: 6px;
     background-color: #f9f9f9;
@@ -64,7 +68,7 @@
 
 
 .view-all-button:hover {
-    background-color: #1f7f6b;
+    background-color: #178582;
 }
 
 .product-grid {
