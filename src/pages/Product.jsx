@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Product.css';
 
-const Product = ({ product, addToCart }) => {
+const Product = ({ addToCart }) => {
+  const location = useLocation();
+  const product = location.state?.product; // Accede al producto desde el estado enviado por el Link
+
+  // Verifica si el producto está disponible
+  if (!product) {
+    return <p>Producto no encontrado. Por favor regresa al menú.</p>;
+  }
+
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
   const [quantity, setQuantity] = useState(1);
@@ -36,15 +45,17 @@ const Product = ({ product, addToCart }) => {
       <img src={product.image} alt={product.name} className="product-image" />
       <div className="product-info">
         <h2>{product.name}</h2>
-        <p>{product.description}</p>
-        <p className="product-price">${product.price.toFixed(2)}</p>
+        <p>{product.description || 'Sin descripción disponible.'}</p>
+        <p className="product-price">
+          ${product.price.toLocaleString('es-CO')}
+        </p>
 
         <div className="product-options">
           <div className="size-selector">
             <label>Talla:</label>
             <select value={selectedSize} onChange={handleSizeChange}>
               <option value="">Selecciona una talla</option>
-              {product.sizes.map((size) => (
+              {product.sizes?.map((size) => (
                 <option key={size} value={size}>
                   {size}
                 </option>
@@ -56,7 +67,7 @@ const Product = ({ product, addToCart }) => {
             <label>Color:</label>
             <select value={selectedColor} onChange={handleColorChange}>
               <option value="">Selecciona un color</option>
-              {product.colors.map((color) => (
+              {product.colors?.map((color) => (
                 <option key={color} value={color}>
                   {color}
                 </option>

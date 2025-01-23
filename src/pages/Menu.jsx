@@ -283,34 +283,39 @@ const products = [
             {/* Productos filtrados */}
             <div className="product-grid">
                 {filteredProducts.map((product) => (
-                    <div key={product.id} className="product-card">
-                        <img src={product.image} alt={product.name} className="product-image" />
-                        <div className="product-details">
-                            <h3 className="product-name">{product.name}</h3>
-                            <p className="product-price">
-                                {product.discount > 0 ? (
-                                    <>
-                                        <span className="original-price">
-                                            ${product.price.toLocaleString('es-CO')}
-                                        </span>
-                                        <span className="discounted-price">
-                                            ${(
-                                                product.price -
-                                                (product.price * product.discount) / 100
-                                            ).toLocaleString('es-CO')}
-                                        </span>
-                                    </>
-                                ) : (
-                                    <span>${product.price.toLocaleString('es-CO')}</span>
-                                )}
-                            </p>
-                            {product.discount > 0 && (
-                                <span className="product-discount">
-                                    {product.discount}% OFF
-                                </span>
+                    <Link 
+                    to={`/product/${product.id}`} 
+                    state={{ product }} 
+                    key={product.id} 
+                    className="product-card"
+                >
+                    <img src={product.image} alt={product.name} className="product-image" />
+                    <div className="product-details">
+                        <h3 className="product-name">{product.name}</h3>
+                        <p className="product-price">
+                            {product.discount > 0 ? (
+                                <>
+                                    <span className="original-price">
+                                        ${product.price.toLocaleString('es-CO')}
+                                    </span>
+                                    <span className="discounted-price">
+                                        ${(
+                                            product.price -
+                                            (product.price * product.discount) / 100
+                                        ).toLocaleString('es-CO')}
+                                    </span>
+                                </>
+                            ) : (
+                                <span>${product.price.toLocaleString('es-CO')}</span>
                             )}
-                        </div>
+                        </p>
+                        {product.discount > 0 && (
+                            <span className="product-discount">
+                                {product.discount}% OFF
+                            </span>
+                        )}
                     </div>
+                </Link>                
                 ))}
             </div>
         </div>
